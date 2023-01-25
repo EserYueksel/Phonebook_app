@@ -10,29 +10,12 @@ import com.example.phonebook.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var entryList: MutableList<Entry>
+//    private lateinit var binding: ActivityMainBinding
+//    private lateinit var entryList: MutableList<Entry>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        val datasource = Datasource()
-        val entryList = datasource.getEntryList()
-
-        val entryAdapter = EntryAdapter(this, entryList)
-        binding.entryRecycler.adapter = entryAdapter
-
-         binding.addEntryButton.setOnClickListener {
-            val name = binding.nameEdit.text.toString()
-            val number = binding.numberEdit.text.toString()
-
-            if (!name.isNullOrEmpty()) {
-                val newEntry = Entry(name, number,R.drawable.ic_launcher_background)
-                entryList.add(newEntry)
-                entryAdapter.notifyItemInserted(entryList.lastIndex)
-            }
-        }
+        setContentView(R.layout.activity_main)
     }
 }
 

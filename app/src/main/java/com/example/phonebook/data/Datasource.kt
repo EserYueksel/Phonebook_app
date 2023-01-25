@@ -7,12 +7,12 @@ class Datasource {
 
     fun getEntryList(): MutableList<Entry> {
         return mutableListOf(
-            Entry("Fritz", "+491582382384", R.drawable.entry_acc_image),
-            Entry("Onkel Roger","+42258923498",R.drawable.entry_acc_image),
-            Entry("Kim Jong","+248023482",R.drawable.entry_acc_image),
-            Entry("Kim Chi","+252342873",R.drawable.entry_acc_image),
-            Entry("Popeye","+232498829",R.drawable.entry_acc_image),
-            Entry("Willhelm","+603459822",R.drawable.entry_acc_image)
+            Entry("Fritz", "491582", R.drawable.entry_acc_image),
+            Entry("Onkel Roger","422588",R.drawable.entry_acc_image),
+            Entry("Kim Jong","23482",R.drawable.entry_acc_image),
+            Entry("Kim Chi","342873",R.drawable.entry_acc_image),
+            Entry("Popeye","98829",R.drawable.entry_acc_image),
+            Entry("Willhelm","59822",R.drawable.entry_acc_image)
         )
     }
 }

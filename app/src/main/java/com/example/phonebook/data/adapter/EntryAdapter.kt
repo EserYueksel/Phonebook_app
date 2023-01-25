@@ -1,17 +1,18 @@
 package com.example.appName.adapter
 
 import android.content.Context
-import android.provider.ContactsContract.CommonDataKinds.Im
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.phonebook.R
 import com.example.phonebook.data.model.Entry
+import com.example.phonebook.ui.HomeFragmentDirections
+import com.google.android.material.card.MaterialCardView
 
 
 class EntryAdapter(private val context: Context, private val dataset: MutableList<Entry>)
@@ -23,7 +24,8 @@ class EntryAdapter(private val context: Context, private val dataset: MutableLis
         var entryNumber = view.findViewById<TextView>(R.id.entry_number_text)
         val entryImage = view.findViewById<ImageView>(R.id.entry_image)
         val deleteEntry = view.findViewById<ImageView>(R.id.entry_delete)
-        val editEntry = view.findViewById<ImageView>(R.id.entry_edit)
+    //  val editEntry = view.findViewById<ImageView>(R.id.entry_edit)
+        val entryCard = view.findViewById<CardView>(R.id.entry_card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,6 +47,10 @@ class EntryAdapter(private val context: Context, private val dataset: MutableLis
             deleteContact(entry)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, dataset.lastIndex)
+        }
+        holder.entryCard.setOnClickListener{
+            holder.itemView.findNavController().navigate(HomeFragmentDirections.
+            actionHomeFragmentToDetailFragment(entry))
         }
     }
 
